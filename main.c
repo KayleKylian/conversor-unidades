@@ -6,7 +6,32 @@ void comprimento(){
   
 }
 void massa(){
-  
+    float valor;
+    char unidade;
+
+    printf("Digite o valor seguido de sua unidade de medida:\n");
+    printf("K - Quilograma\nG - Grama\nT - Tonelada\n");
+    printf("Por exemplo, 5K para 5 Quilogramas\n");
+    scanf("%f %c", &valor, &unidade);
+
+    switch (unidade) {
+        case 'K':
+            printf("%.2f Quilograma(s) equivalem a %.2f Grama(s) e %.2f Tonelada(s)\n", 
+                   valor, valor * 1000, valor / 1000);
+            break;
+        case 'G':
+            printf("%.2f Grama(s) equivalem a %.2f Quilograma(s) e %.2f Tonelada(s)\n", 
+                   valor, valor / 1000, valor / 1000000);
+            break;
+        case 'T':
+            printf("%.2f Tonelada(s) equivalem a %.2f Quilograma(s) e %.2f Grama(s)\n", 
+                   valor, valor * 1000, valor * 1000000);
+            break;
+        default:
+            system("cls");
+            printf("Unidade indisponivel no conversor\nVerifique se esta utilizando letras maiusculas\n");
+            break;
+    }
 }
 void volume(){
   
