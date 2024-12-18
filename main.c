@@ -1,9 +1,49 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+
 void comprimento(){
-  printf("digite o numero que deseja converter com sua atual unidade de medida: \n");
+  float tamanho;
+  char medida[3];
+  int resultado;
+
+  printf("Digite o valor seguido de sua medida:\n");
+  printf("m - Metros\ncm - Centimetros\nmm - Milimetros\n");
+  printf("Por exemplo, 100m para indicar 100 metros\n");
+  printf("Valor: ");
+  resultado = scanf("%f %s", &tamanho, &medida);
   
-  
+  while(getchar() != '\n');
+
+  if(resultado != 2) {
+    printf("Entrada invalida, verifique se digitou corretamente.\n");
+    return;
+  }
+
+  switch (strlen(medida)) {
+    case 1:
+      if(medida[0] == 'm') {
+        printf("%.2f metros equivalem a:\n%.2f centimetros\n%.2f milimetros\n", tamanho, tamanho * 100, tamanho * 1000);
+        break;
+      } else {
+        printf("Unidade de medida invalida, verifique se digitou em minusculo\n");
+        break;
+      }
+    case 2:
+      if(strcmp(medida, "cm") == 0) {
+        printf("%.2f centimetros equivalem a:\n%.2f metros\n%.2f milimetros\n", tamanho, tamanho / 100, tamanho * 10);
+        break;
+      } else if(strcmp(medida, "mm") == 0) {
+        printf("%.2f milimetros equivalem a:\n%.2f metros\n%.2f centimetros\n", tamanho, tamanho / 1000, tamanho / 10);
+        break;
+      } else {
+        printf("Unidade de medida invalida, verifique se digitou em minusculo\n");
+        break;
+      }
+    default:
+      printf("Entrada Invalida\n");
+      break;
+  }
 }
 void massa(){
   
