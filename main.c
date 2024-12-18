@@ -17,17 +17,17 @@ void temperatura(){
   char escala;
   printf("Digite o numero seguido de sua escala \n");
   printf("C- Celsius \nF- Fahrenheit \nK- Kelvin \n");
-  printf("Por exemplor 27C, para indicar 27 graus celsius \n");
+  printf("Por exemplo 27C, para indicar 27 graus celsius \n");
   scanf("%f %c",&temperatura,&escala);
   switch (escala) {
     case 'C':
-      printf("%.2f em Celsius equivalem a %.2f em Fahrenheit e %.2f em Kelvin \n",temperatura,(temperatura * 9/5) + 32,temperatura + 273);
+      printf("%.2f em Celsius equivalem a %.2f em Fahrenheit e %.2f em Kelvin \n",temperatura,(temperatura * 9/5) + 32,temperatura + 273.15);
       break;
     case 'K':  
-      printf("%.2f em Kelvin equivalem a %.2f em Fahrenheit e %.2f em Celsius \n",temperatura,1.8 * (temperatura - 273) + 32,temperatura - 273);
+      printf("%.2f em Kelvin equivalem a %.2f em Fahrenheit e %.2f em Celsius \n",temperatura,1.8 * (temperatura - 273.15) + 32,temperatura - 273.15);
       break;
     case 'F':  
-      printf("%.2f em Fahrenheit equivalem a %.2f em Kelvin e %.2f em Celsius \n",temperatura,(temperatura - 32) * 5/9 + 273,(temperatura - 32) / 1.8);
+      printf("%.2f em Fahrenheit equivalem a %.2f em Kelvin e %.2f em Celsius \n",temperatura,(temperatura - 32) * 5/9 + 273.15,(temperatura - 32) / 1.8);
       break;
       
     default:
