@@ -8,9 +8,62 @@ void comprimento(){
 void massa(){
   
 }
-void volume(){
-  
+void volume() {
+    int escolha;
+    float valor, convertido;
+
+    printf("Escolha a conversao de volume desejada:\n");
+    printf("1- Litros para Mililitros\n");
+    printf("2- Mililitros para Litros\n");
+    printf("3- Litros para Metros Cubicos\n");
+    printf("4- Metros Cubicos para Litros\n");
+    printf("5- Mililitros para Metros Cubicos\n");
+    printf("6- Metros Cubicos para Mililitros\n");
+    scanf("%d", &escolha);
+
+    switch (escolha) {
+        case 1:
+            printf("Digite o valor em Litros: ");
+            scanf("%f", &valor);
+            convertido = valor * 1000; // 1 litro = 1000 mililitros
+            printf("%.2f Litros equivalem a %.2f Mililitros\n", valor, convertido);
+            break;
+        case 2:
+            printf("Digite o valor em Mililitros: ");
+            scanf("%f", &valor);
+            convertido = valor / 1000; // 1 mililitro = 0.001 litros
+            printf("%.2f Mililitros equivalem a %.2f Litros\n", valor, convertido);
+            break;
+        case 3:
+            printf("Digite o valor em Litros: ");
+            scanf("%f", &valor);
+            convertido = valor / 1000; // 1 metro cubico = 1000 litros
+            printf("%.2f Litros equivalem a %.2f Metros Cubicos\n", valor, convertido);
+            break;
+        case 4:
+            printf("Digite o valor em Metros Cubicos: ");
+            scanf("%f", &valor);
+            convertido = valor * 1000; // 1 metro cubico = 1000 litros
+            printf("%.2f Metros Cubicos equivalem a %.2f Litros\n", valor, convertido);
+            break;
+        case 5:
+            printf("Digite o valor em Mililitros: ");
+            scanf("%f", &valor);
+            convertido = valor / 1000000; // 1 mililitro = 0.000001 metros cubicos
+            printf("%.2f Mililitros equivalem a %.6f Metros Cubicos\n", valor, convertido);
+            break;
+        case 6:
+            printf("Digite o valor em Metros Cubicos: ");
+            scanf("%f", &valor);
+            convertido = valor * 1000000; // 1 metro cubico = 1000000 mililitros
+            printf("%.2f Metros Cubicos equivalem a %.2f Mililitros\n", valor, convertido);
+            break;
+        default:
+            printf("Opcao invalida. Por favor, tente novamente.\n");
+            break;
+    }
 }
+
 void temperatura(){
   int acabou = 0;
   float temperatura;
