@@ -130,7 +130,129 @@ void velocidade(){
   //converte m/s, km/h e mph
 }
 void potencia(){
-  
+    
+    int escolhaInicial,escolhaFinal,novaescolha;
+    float valor, resultado;
+    do{
+    //Unidades de Potência (Watts [W], Quilowatts [kW], cavalos-vapor [cv ou hp])
+        printf("Conversor de unidades de potencia \n\n");
+        printf("Em qual unidade esta o seu valor : \n1-Watts\n2-Quilowatts (kW)\n3-cavalos-vapor\n");
+        scanf("%d",&escolhaInicial);
+    
+    }while(escolhaInicial >=4 || escolhaInicial<=0);
+
+    printf("Qual o valor numerico a ser convertido:");
+    scanf("%f", &valor);
+
+    do{
+       MENU: 
+        printf("\n\n");
+        printf("Qual Unidade de conversao:\n");
+        printf("1-Watts\n2-Quilowatts (kW)\n3-cavalos-vapor\n");
+        scanf("%d",&escolhaFinal);
+    }while(escolhaFinal>=4 || escolhaFinal<=0);
+    //do while pra impedir que outros valores errados sejam adicionados as variaveis escolhafinal e  escolha inicial
+
+
+    switch (escolhaInicial)
+    {
+        case 1: //Watts
+            switch (escolhaFinal)
+            {
+            case 1 : 
+                do{
+                printf("Voce escolheu de Watts para Watts , nao precisa fazer conversao\n");
+                printf("Deseja retornar ao menu ?\n1-Menu inicial\n2- Sair do codigo\n");
+                scanf("%d",&novaescolha);
+                if (novaescolha==1)
+                {
+                    goto MENU;
+                }
+                else if (novaescolha==2)
+                {
+                    goto END;
+                }
+                }while (novaescolha <1 || novaescolha>2);
+                break;
+            case 2://kW
+                resultado = valor / 1000;
+                printf("Voce escolheu Watts para Quilowatts.\n"); 
+                printf("O resultado e: %.2f kW\n", resultado);
+                break;
+            case 3: //cavalo
+                resultado = valor / 735.5; 
+                printf("Voce escolheu Watts para Cavalos-Vapor.\n"); 
+                printf("O resultado e: %.2f kW\n", resultado);
+                break;
+            }
+        break;   
+        case 2:
+             switch(escolhaFinal)//kw
+            {
+                case 1:
+                    resultado = valor * 1000; 
+                    printf("Você escolheu Quilowatts para Watts.\n"); 
+                    printf("O resultado é: %.2lf W\n", resultado);
+                    break;
+                case 2:
+                    do{
+                    printf("Voce escolheu de Quilowatts para Quilowatts, nao precisa fazer conversao\n");
+                    printf("Deseja retornar ao menu ?\n1-Menu inicial\n2-Sair do codigo\n");
+                    scanf("%d",&novaescolha);
+                    if (novaescolha==1)
+                    {
+                        goto MENU;
+                    }
+                    else if (novaescolha==2)
+                    {
+                        goto END;
+                    }
+                    }while (novaescolha <1 || novaescolha>2);
+                    break;
+                case 3:
+                    resultado = valor * 1000 / 735.5;
+                    printf("Você escolheu Quilowatts para Cavalos-Vapor.\n");
+                    printf("O resultado é: %.2lf cv\n", resultado); 
+                    break;
+            
+            }       
+        break;
+            
+        case 3: //Cavalos-Vapor switch (unidadeDestino) 
+         
+            switch (escolhaFinal)
+            {
+            case 1: // Para Watts 
+                resultado = valor * 735.5; 
+                printf("Você escolheu Cavalos-Vapor para Watts.\n");
+                printf("O resultado é: %.2f W\n", resultado); 
+                break; 
+            case 2: // Para Quilowatts 
+                 resultado = valor * 735.5 / 1000; 
+                 printf("Você escolheu Cavalos-Vapor para Quilowatts.\n"); 
+                 printf("O resultado é: %.2f kW\n", resultado);
+                 break; 
+            case 3: // Para Cavalos-Vapor (mesma unidade)
+                do{
+                printf("Você escolheu a mesma unidade, Cavalos-Vapor para Cavalos-Vapor.\n");
+                printf("Deseja retornar ao menu ?\n1-Menu inicial\n2-Sair do codigo\n");
+                scanf("%d",&novaescolha);
+                if (novaescolha==1)
+                {
+                    goto MENU;
+                }
+                else if (novaescolha==2)
+                {
+                    goto END;
+                }
+                }while (novaescolha <1 || novaescolha>2);
+                break;
+            break;
+            }
+        break;     
+    }             
+END:
+printf("Fim do codigo\n");
 }
 void area(){
   
