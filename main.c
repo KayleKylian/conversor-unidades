@@ -39,7 +39,27 @@ void temperatura(){
   
 }
 void velocidade(){
+  float valorInicial, valorConvertido;
+  char escalaInicial;
+  printf("Digite a velocidade com m para m/s ou k para km/h para ser convertida (ex: 100m): ");
+  scanf("%f %c", &valorInicial, &escalaInicial);
+
+  switch (escalaInicial)
+  {
+  case 'm':
+    valorConvertido = valorInicial * 3.6;
+    printf("A velocidade %.2f m/s equivale a %.2f km/h: \n", valorInicial,valorConvertido);
+    break;
+  case 'k':
+    valorConvertido = valorInicial/3.6;
+    printf("A velocidade em %.2f Km/h equivale a %.2f m/s: \n", valorInicial,valorConvertido);
+    break;
   
+  default:
+    printf("Escolha uma velociade valida (m para m/s e k para km/h): \n");
+    break;
+  }
+  //converte m/s em km/h e vice versa
 }
 void potencia(){
   
