@@ -134,6 +134,7 @@ void potencia(){
     int escolhaInicial,escolhaFinal,novaescolha;
     float valor, resultado;
     do{
+      MENU:
     //Unidades de Potência (Watts [W], Quilowatts [kW], cavalos-vapor [cv ou hp])
         printf("Conversor de unidades de potencia \n\n");
         printf("Em qual unidade esta o seu valor : \n1-Watts\n2-Quilowatts (kW)\n3-cavalos-vapor\n");
@@ -145,7 +146,7 @@ void potencia(){
     scanf("%f", &valor);
 
     do{
-       MENU: 
+        
         printf("\n\n");
         printf("Qual Unidade de conversao:\n");
         printf("1-Watts\n2-Quilowatts (kW)\n3-cavalos-vapor\n");
