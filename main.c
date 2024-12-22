@@ -396,8 +396,13 @@ void bits()
 	printf("Digite o numero correspondente a unidade de destino: ");
 	scanf("%d", &destino);
 
+	if (origem == destino){
+		printf("\n Erro: unidade de origem igual a unidade de destino. \n");
+		return;
+	}
+
 	printf("Digite o valor para conversao: ");
-	scanf("%Lf", &valor);
+	scanf("%llu", &valor);
 
 	unsigned long long resultado = valor;
 	char *unidadeOrigem = "";
