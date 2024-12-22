@@ -347,15 +347,15 @@ void bits(){
     printf("Conversor de unidades de armazenamento\n");
     printf("Escolha a unidade de origem:\n");
     printf("0 - Bits\n1 - Bytes\n2 - Quilobytes (KB)\n3 - Megabytes (MB)\n4 - Gigabytes (GB)\n5 - Terabytes (TB)\n");
-    printf("Digite o número correspondente à unidade de origem: ");
+    printf("Digite o numero correspondente a unidade de origem: ");
     scanf("%d", &origem);
 
     printf("Escolha a unidade de destino:\n");
     printf("0 - Bits\n1 - Bytes\n2 - Quilobytes (KB)\n3 - Megabytes (MB)\n4 - Gigabytes (GB)\n5 - Terabytes (TB)\n");
-    printf("Digite o número correspondente à unidade de destino: ");
+    printf("Digite o numero correspondente a unidade de destino: ");
     scanf("%d", &destino);
 
-    printf("Digite o valor para conversão: ");
+    printf("Digite o valor para conversao: ");
     scanf("%Lf", &valor);
 
     long double resultado = valor;
