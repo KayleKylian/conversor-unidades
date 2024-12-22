@@ -255,9 +255,35 @@ void potencia(){
 END:
 printf("Fim do codigo\n");
 }
-void area(){
-  
+void area() {
+    int escolha = 0;
+    float valor, convertido;
+
+    printf("Escolha a conversao de area desejada:\n");
+    printf("1- Metros Quadrados para Centimetros Quadrados\n");
+    printf("2- Centimetros Quadrados para Metros Quadrados\n");
+    scanf("%d", &escolha);
+
+    switch (escolha) {
+        case 1:
+            printf("Digite o valor em Metros Quadrados (exemplo: 5.5): ");
+            scanf("%f", &valor);
+            convertido = valor * 10000; // 1 metro quadrado = 10,000 centimetros quadrados
+            printf("%.2f Metros Quadrados equivalem a %.2f Centimetros Quadrados\n", valor, convertido);
+            break;
+        case 2:
+            printf("Digite o valor em Centimetros Quadrados (exemplo: 55000): ");
+            scanf("%f", &valor);
+            convertido = valor / 10000; // 1 centimetro quadrado = 0.0001 metros quadrados
+            printf("%.2f Centimetros Quadrados equivalem a %.4f Metros Quadrados\n", valor, convertido);
+            break;
+        default:
+            printf("Opcao invalida. Por favor, tente novamente.\n");
+            break;
+    }
 }
+
+
 void tempo(){
   
 }
