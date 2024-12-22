@@ -341,7 +341,67 @@ void tempo(){
   
 }
 void bits(){
-  
+  long double valor;
+    int origem, destino;
+    
+    printf("Conversor de unidades de armazenamento\n");
+    printf("Escolha a unidade de origem:\n");
+    printf("0 - Bits\n1 - Bytes\n2 - Quilobytes (KB)\n3 - Megabytes (MB)\n4 - Gigabytes (GB)\n5 - Terabytes (TB)\n");
+    printf("Digite o número correspondente à unidade de origem: ");
+    scanf("%d", &origem);
+
+    printf("Escolha a unidade de destino:\n");
+    printf("0 - Bits\n1 - Bytes\n2 - Quilobytes (KB)\n3 - Megabytes (MB)\n4 - Gigabytes (GB)\n5 - Terabytes (TB)\n");
+    printf("Digite o número correspondente à unidade de destino: ");
+    scanf("%d", &destino);
+
+    printf("Digite o valor para conversão: ");
+    scanf("%Lf", &valor);
+
+    long double resultado = valor;
+    char *unidadeOrigem = "";
+    char *unidadeDestino = "";
+
+    // Convertendo para Bytes (valor base)
+    if (origem == 0) {  // Bits para Bytes
+        resultado /= 8;
+        unidadeOrigem = "Bits";
+    } else if (origem == 1) {  // Bytes para Bytes
+        unidadeOrigem = "Bytes";
+    } else if (origem == 2) {  // KB para Bytes
+        resultado *= 1024;
+        unidadeOrigem = "KB";
+    } else if (origem == 3) {  // MB para Bytes
+        resultado *= 1024 * 1024;
+        unidadeOrigem = "MB";
+    } else if (origem == 4) {  // GB para Bytes
+        resultado *= 1024 * 1024 * 1024;
+        unidadeOrigem = "GB";
+    } else if (origem == 5) {  // TB para Bytes
+        resultado *= 1024 * 1024 * 1024 * 1024;
+        unidadeOrigem = "TB";
+    }
+
+    // Convertendo de Bytes para a unidade de destino
+    if (destino == 0) {  // Bytes para Bits
+        resultado *= 8;
+        unidadeDestino = "Bits";
+    } else if (destino == 1) {  // Bytes para Bytes
+        unidadeDestino = "Bytes";
+    } else if (destino == 2) {  // Bytes para KB
+        resultado /= 1024;
+        unidadeDestino = "KB";
+    } else if (destino == 3) {  // Bytes para MB
+        resultado /= (1024 * 1024);
+        unidadeDestino = "MB";
+    } else if (destino == 4) {  // Bytes para GB
+        resultado /= (1024 * 1024 * 1024);
+        unidadeDestino = "GB";
+    } else if (destino == 5) {  // Bytes para TB
+        resultado /= (1024 * 1024 * 1024 * 1024);
+        unidadeDestino = "TB";
+    }
+    printf("Resultado: %.6Lf %s = %.6Lf %s\n", valor, unidadeOrigem, resultado, unidadeDestino);
 }
 int main(){
   int input = -1; 
