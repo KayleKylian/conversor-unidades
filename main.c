@@ -472,7 +472,7 @@ void tempo()
     }
 
 End:
-printf("\n Fim de execução");
+printf("\n Fim da conversão");
 }
 void bits()
 {
