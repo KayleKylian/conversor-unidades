@@ -379,6 +379,100 @@ void area()
 
 void tempo()
 {
+	    // Tempo
+    int escolhaTempo, convertaTempo, tempo;
+    int escolha;
+
+    do {
+    Inicio://para trazer novamente para o menu
+        printf("Conversor de Unidades de tempo\n");
+        printf("Qual a unidade de origem ?\n1-Horas\n2-Minutos\n3-Segundos\n");
+        scanf("%d", &escolhaTempo);
+        if (escolhaTempo < 1 || escolhaTempo > 3) {
+            printf("\nOpcao invalida, tente novamente\n"); // Pro usuario entender o erro de opcao
+        }
+    } while (escolhaTempo < 1 || escolhaTempo > 3); // Do while pra impedir que outros valores errados sejam adicionados as variaveis
+    printf("\nQual valor a ser convertido?\n");
+    scanf("%d", &tempo);
+
+    do {
+        printf("Qual unidade de tempo deseja que seja convertida?\n1-Horas\n2-Minutos\n3-Segundos\n");
+        scanf("%d", &convertaTempo);
+    } while (convertaTempo < 1 || convertaTempo > 3);// Do while pra impedir que outros valores errados sejam adicionados as variaveis
+
+    switch (escolhaTempo) {
+        case 1: // Horas
+            switch (convertaTempo) {
+                case 1: // Horas para Horas
+                    printf("Nao ha necessidade de conversao, horas para horas, sao %d horas\n", tempo);
+                    printf("\n1-Deseja retornar ao menu\n2-Sair\n");
+                    scanf("%d", &escolha);
+                    if (escolha == 1) {
+                        goto Inicio;//para levar novamente ao incio do menu
+                    } else if (escolha == 2) {
+                        goto End;
+                    }
+                    break;
+                case 2: // Horas para Minutos
+                    printf("%d horas equivalem a %d minutos\n", tempo, tempo * 60);
+                    break;
+                case 3: // Horas para Segundos
+                    printf("%d horas equivalem a %d segundos\n", tempo, tempo * 3600);
+                    break;
+                default:
+                    break; // Evita fall-through
+            }
+            break;
+        case 2: // Minutos
+            switch (convertaTempo) {
+                case 1: // Minutos para Horas
+                    printf("%d minutos equivalem a %.2f horas\n", tempo, tempo / 60.0);
+                    break;
+                case 2: // Minutos para Minutos
+                    printf("Nao ha necessidade de conversao, minutos para minutos, sao %d minutos\n", tempo);
+                    printf("\n1-Deseja retornar ao menu\n2-Sair\n");
+                    scanf("%d", &escolha);
+                    if (escolha == 1) {
+                        goto Inicio;
+                    } else if (escolha == 2) {
+                        goto End;
+                    }
+                    break;
+                case 3: // Minutos para Segundos
+                    printf("%d minutos equivalem a %d segundos\n", tempo, tempo * 60);
+                    break;
+                default:
+                    break; // Evita fall-through
+            }
+            break;
+        case 3: // Segundos
+            switch (convertaTempo) {
+                case 1: // Segundos para Horas
+                    printf("%d segundos equivalem a %.2f horas\n", tempo, tempo / 3600.0);
+                    break;
+                case 2: // Segundos para Minutos
+                    printf("%d segundos equivalem a %.2f minutos\n", tempo, tempo / 60.0);
+                    break;
+                case 3: // Segundos para Segundos
+                    printf("Nao ha necessidade de conversao, segundos para segundos, sao %d segundos\n", tempo);
+                    printf("\n1-Deseja retornar ao menu\n2-Sair\n");
+                    scanf("%d", &escolha);
+                    if (escolha == 1) {
+                        goto Inicio;
+                    } else if (escolha == 2) {
+                        goto End;
+                    }
+                    break;
+                default:
+                    break; // Evita fall-through
+            }
+            break;
+        default:
+            break; // Evita fall-through
+    }
+
+End:
+printf("\n Fim da conversão");
 }
 void bits()
 {
