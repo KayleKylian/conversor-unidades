@@ -12,6 +12,7 @@ void potencia();
 void area();
 void tempo();
 void bits();
+void pressao();
 
 void comprimento()
 {
@@ -526,6 +527,85 @@ void bits()
 	}
 	printf("Resultado: %.6llu %s = %.6llu %s\n", valor, unidadeOrigem, resultado, unidadeDestino);
 }
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+// Declaração das funções
+void comprimento();
+void massa();
+void volume();
+void temperatura();
+void velocidade();
+void potencia();
+void area();
+void tempo();
+void bits();
+void pressao(); // Adicione esta declaração
+
+// Funções existentes (comprimento, massa, volume, etc.) permanecem aqui...
+
+void pressao() {
+    int unidade_origem, unidade_destino;
+    float conversao_aux, resultado;
+    float valor;
+    int repetir = 0;
+
+    while (repetir != 2) {
+        printf("\n<BEM-VINDO AO CONVERSOR DE UNIDADE DE PRESSAO>\n");
+        printf("\nOPCOES DE UNIDADES DE ORIGEM:\n");
+        printf("1 - Pascal (Pa)\n");
+        printf("2 - Atmosfera (atm)\n");
+        printf("3 - Bar (Ba)\n");
+        printf("4 - Libra-forca por Polegada Quadrada (psi)\n");
+        printf("5 - Milimetro de Mercurio (mmHg)\n");
+        printf("\nSELECIONE UMA OPCAO: ");
+        scanf("%d", &unidade_origem);
+
+        printf("\nOPCOES DE UNIDADES DE DESTINO:\n");
+        printf("1 - Pascal (Pa)\n");
+        printf("2 - Atmosfera (atm)\n");
+        printf("3 - Bar (Ba)\n");
+        printf("4 - Libra-forca por Polegada Quadrada (psi)\n");
+        printf("5 - Milimetro de Mercurio (mmHg)\n");
+        printf("\nSELECIONE UMA OPCAO: ");
+        scanf("%d", &unidade_destino);
+
+        if (unidade_origem < 1 || unidade_origem > 5 || unidade_destino < 1 || unidade_destino > 5) {
+            printf("\nOpcao invalida. Por favor, selecione uma opcao entre 1 e 5.\n");
+            continue;
+        }
+
+        printf("\nDIGITE O VALOR PARA CONVERSAO: ");
+        scanf("%f", &valor);
+
+        switch (unidade_origem) {
+            case 1: conversao_aux = valor; break;
+            case 2: conversao_aux = valor * 101325; break;
+            case 3: conversao_aux = valor * 100000; break;
+            case 4: conversao_aux = valor * 6894.76; break;
+            case 5: conversao_aux = valor * 133.22; break;
+        }
+
+        switch (unidade_destino) {
+            case 1: resultado = conversao_aux; break;
+            case 2: resultado = conversao_aux / 101325; break;
+            case 3: resultado = conversao_aux / 100000; break;
+            case 4: resultado = conversao_aux / 6894.76; break;
+            case 5: resultado = conversao_aux / 133.22; break;
+        }
+
+        if (unidade_origem == unidade_destino) {
+            printf("\nMESMA UNIDADE, PORTANTO O VALOR PERMANECE %.3f\n", valor);
+        } else {
+            printf("\nO RESULTADO DESSA CONVERSAO EH: %.3f\n", resultado);
+        }
+
+        printf("\nGostaria de fazer outra conversao de pressao?\n(1) SIM\n(2) NAO\n");
+        scanf("%d", &repetir);
+    }
+}
+
 int main()
 {
 	int input = -1;
@@ -542,6 +622,7 @@ int main()
 		printf("7- para converter unidades de area \n");
 		printf("8- para converter unidades de tempo \n");
 		printf("9- para converter unidades de bits \n");
+		printf("10- para converter unidades de pressao \n");
 		if (scanf("%d", &input) != 1)
 		{
 			// Limpa o buffer de entrada se a leitura falhar
@@ -584,6 +665,10 @@ int main()
 		case 9:
 			bits();
 			break;
+		case 10:
+    		pressao();
+    		break;
+	
 		default:
 			system("cls"); // limpa o terminal
 			printf("Input invalido, tente novamente. \n");
