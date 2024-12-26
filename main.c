@@ -10,7 +10,6 @@ void temperatura();
 void velocidade();
 void potencia();
 void area();
-void tempo();
 void bits();
 void pressao();
 
@@ -377,65 +376,6 @@ void area()
 		break;
 	}
 }
-
-void tempo()
-{
-	int escolha = 0;
-	float valor, convertido;
-
-	printf("Escolha a conversao de tempo desejada:\n");
-	printf("1 - Segundos para Minutos\n");
-	printf("2 - Minutos para Segundos\n");
-	printf("3 - Minutos para Horas\n");
-	printf("4 - Horas para Minutos\n");
-	printf("5 - Horas para Dias\n");
-	printf("6 - Dias para Horas \n");
-	printf("Digite a sua opcao: ");
-	scanf("%d", &escolha);
-
-	if(escolha < 1 || escolha > 6){
-		printf("Opcao invalida. Favor escolher entre 1 e 6\n");
-	}
-
-	printf("Digite o valor para conversao: ");
-	scanf("%f", &valor);
-
-	switch (escolha){
-		case 1: //Segundos para Minutos
-		convertido = valor/60;
-		printf("\n%.2f Segundos = %.2f Minutos\n\n", valor, convertido);
-		break;
-
-		case 2: //Minutos para Segundos
-		convertido = valor*60;
-		printf("\n%.2f Minutos = %2.f Segundos\n\n", valor, convertido);
-		break;
-
-		case 3: //Minutos para Horas
-		convertido = valor/60;
-		printf("\n%.2f Minutos = %.2f Horas\n\n", valor, convertido);
-		break;
-
-		case 4: //Horas para Minutos
-		convertido = valor*60;
-		printf("\n%2.f Horas = %.2f Minutos\n\n", valor, convertido);
-		break;
-
-		case 5: //Horas para Dias
-		convertido = valor/24;
-		printf("\n%.2f Horas = %.2f Dias\n\n", valor, convertido);
-		break;
-
-		case 6: //Dias para Horas
-		convertido = valor*24;
-		printf("\n%.2f Dias = %.2f Horas\n\n", valor, convertido);
-		break;
-	default:
-		printf("\nErro inesperado!\n\n");
-		break;
-	}
-
-}
 void bits()
 {
 	unsigned long long valor;
@@ -527,23 +467,6 @@ void bits()
 	}
 	printf("Resultado: %.6llu %s = %.6llu %s\n", valor, unidadeOrigem, resultado, unidadeDestino);
 }
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-// Declaração das funções
-void comprimento();
-void massa();
-void volume();
-void temperatura();
-void velocidade();
-void potencia();
-void area();
-void tempo();
-void bits();
-void pressao(); // Adicione esta declaração
-
-// Funções existentes (comprimento, massa, volume, etc.) permanecem aqui...
 
 void pressao() {
     int unidade_origem, unidade_destino;
@@ -620,7 +543,7 @@ int main()
 		printf("5- para converter unidades de velocidade \n");
 		printf("6- para converter unidades de potencia \n");
 		printf("7- para converter unidades de area \n");
-		printf("8- para converter unidades de tempo \n");
+		//printf("8- para converter unidades de tempo \n");
 		printf("9- para converter unidades de bits \n");
 		printf("10- para converter unidades de pressao \n");
 		if (scanf("%d", &input) != 1)
@@ -659,9 +582,9 @@ int main()
 		case 7:
 			area();
 			break;
-		case 8:
+		/*case 8:
 			tempo();
-			break;
+			break;*/
 		case 9:
 			bits();
 			break;
