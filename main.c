@@ -394,6 +394,7 @@ void tempo()
 
 	if(escolha < 1 || escolha > 6){
 		printf("Opcao invalida. Favor escolher entre 1 e 6\n");
+		return; //Adicionado para sair da função
 	}
 
 	printf("Digite o valor para conversao: ");
@@ -407,7 +408,7 @@ void tempo()
 
 		case 2: //Minutos para Segundos
 		convertido = valor*60;
-		printf("\n%.2f Minutos = %2.f Segundos\n\n", valor, convertido);
+		printf("\n%.2f Minutos = %.2f Segundos\n\n", valor, convertido);
 		break;
 
 		case 3: //Minutos para Horas
@@ -417,7 +418,7 @@ void tempo()
 
 		case 4: //Horas para Minutos
 		convertido = valor*60;
-		printf("\n%2.f Horas = %.2f Minutos\n\n", valor, convertido);
+		printf("\n%.2f Horas = %.2f Minutos\n\n", valor, convertido);
 		break;
 
 		case 5: //Horas para Dias
