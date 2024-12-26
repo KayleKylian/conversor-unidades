@@ -9,9 +9,82 @@ void volume();
 void temperatura();
 void velocidade();
 void potencia();
-void area();
 void tempo();
+void area();
 void bits();
+void pressao();
+
+int main()
+{
+	int input = -1;
+	while (input != 0)
+	{
+		printf("Digite uma das opcoes: \n");
+		printf("0- para fechar \n");
+		printf("1- para converter unidades de comprimento \n");
+		printf("2- para converter unidades de massa \n");
+		printf("3- para converter unidades de volume \n");
+		printf("4- para converter unidades de temperatura \n");
+		printf("5- para converter unidades de velocidade \n");
+		printf("6- para converter unidades de potencia \n");
+		printf("7- para converter unidades de area \n");
+		printf("8- para converter unidades de tempo \n");
+		printf("9- para converter unidades de bits \n");
+		printf("10- para converter unidades de pressao \n");
+		if (scanf("%d", &input) != 1)
+		{
+			// Limpa o buffer de entrada se a leitura falhar
+			while (getchar() != '\n')
+				; // Limpa qualquer caractere restante
+			system("cls");
+			printf("Entrada invalida. Por favor, insira um numero entre 0 e 9.\n");
+			continue; // Retorna ao início do loop
+		}
+		switch (input)
+		{
+		case 0:
+			input = 0;
+			printf("fechando");
+			break;
+		case 1:
+			comprimento();
+			break;
+		case 2:
+			massa();
+			break;
+		case 3:
+			volume();
+			break;
+		case 4:
+			temperatura();
+			break;
+		case 5:
+			velocidade();
+			break;
+		case 6:
+			potencia();
+			break;
+		case 7:
+			area();
+			break;
+		case 8:
+			tempo();
+			break;
+		case 9:
+			bits();
+			break;
+		case 10:
+    		pressao();
+    		break;
+	
+		default:
+			system("cls"); // limpa o terminal
+			printf("Input invalido, tente novamente. \n");
+			break;
+		}
+	}
+	return 0;
+}
 
 void comprimento()
 {
@@ -436,6 +509,7 @@ void tempo()
 	}
 
 }
+
 void bits()
 {
 	unsigned long long valor;
@@ -527,69 +601,85 @@ void bits()
 	}
 	printf("Resultado: %.6llu %s = %.6llu %s\n", valor, unidadeOrigem, resultado, unidadeDestino);
 }
-int main()
-{
-	int input = -1;
-	while (input != 0)
-	{
-		printf("Digite uma das opcoes: \n");
-		printf("0- para fechar \n");
-		printf("1- para converter unidades de comprimento \n");
-		printf("2- para converter unidades de massa \n");
-		printf("3- para converter unidades de volume \n");
-		printf("4- para converter unidades de temperatura \n");
-		printf("5- para converter unidades de velocidade \n");
-		printf("6- para converter unidades de potencia \n");
-		printf("7- para converter unidades de area \n");
-		printf("8- para converter unidades de tempo \n");
-		printf("9- para converter unidades de bits \n");
-		if (scanf("%d", &input) != 1)
-		{
-			// Limpa o buffer de entrada se a leitura falhar
-			while (getchar() != '\n')
-				; // Limpa qualquer caractere restante
-			system("cls");
-			printf("Entrada invalida. Por favor, insira um numero entre 0 e 9.\n");
-			continue; // Retorna ao início do loop
-		}
-		switch (input)
-		{
-		case 0:
-			input = 0;
-			printf("fechando");
-			break;
-		case 1:
-			comprimento();
-			break;
-		case 2:
-			massa();
-			break;
-		case 3:
-			volume();
-			break;
-		case 4:
-			temperatura();
-			break;
-		case 5:
-			velocidade();
-			break;
-		case 6:
-			potencia();
-			break;
-		case 7:
-			area();
-			break;
-		case 8:
-			tempo();
-			break;
-		case 9:
-			bits();
-			break;
-		default:
-			system("cls"); // limpa o terminal
-			printf("Input invalido, tente novamente. \n");
-			break;
-		}
-	}
-	return 0;
+
+void limparBuffer() {
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF);
+}
+
+void pressao() {
+    int unidade_origem, unidade_destino;
+    float conversao_aux, resultado;
+    float valor;
+    int repetir = 0;
+
+    while (repetir != 2) {
+        printf("\n<BEM-VINDO AO CONVERSOR DE UNIDADE DE PRESSAO>\n");
+        printf("\nOPCOES DE UNIDADES DE ORIGEM:\n");
+        printf("1 - Pascal (Pa)\n");
+        printf("2 - Atmosfera (atm)\n");
+        printf("3 - Bar (Ba)\n");
+        printf("4 - Libra-forca por Polegada Quadrada (psi)\n");
+        printf("5 - Milimetro de Mercurio (mmHg)\n");
+        printf("\nSELECIONE UMA OPCAO: ");
+        if (scanf("%d", &unidade_origem) != 1) {
+            printf("Entrada invalida. Tente novamente.\n");
+            limparBuffer();
+            continue;
+        }
+
+        printf("\nOPCOES DE UNIDADES DE DESTINO:\n");
+        printf("1 - Pascal (Pa)\n");
+        printf("2 - Atmosfera (atm)\n");
+        printf("3 - Bar (Ba)\n");
+        printf("4 - Libra-forca por Polegada Quadrada (psi)\n");
+        printf("5 - Milimetro de Mercurio (mmHg)\n");
+        printf("\nSELECIONE UMA OPCAO: ");
+        if (scanf("%d", &unidade_destino) != 1) {
+            printf("Entrada invalida. Tente novamente.\n");
+            limparBuffer();
+            continue;
+        }
+
+        if (unidade_origem < 1 || unidade_origem > 5 || unidade_destino < 1 || unidade_destino > 5) {
+            printf("\nOpcao invalida. Por favor, selecione uma opcao entre 1 e 5.\n");
+            continue;
+        }
+
+        printf("\nDIGITE O VALOR PARA CONVERSAO: ");
+        if (scanf("%f", &valor) != 1) {
+            printf("Entrada invalida. Tente novamente.\n");
+            limparBuffer();
+            continue;
+        }
+
+        switch (unidade_origem) {
+            case 1: conversao_aux = valor; break;
+            case 2: conversao_aux = valor * 101325; break;
+            case 3: conversao_aux = valor * 100000; break;
+            case 4: conversao_aux = valor * 6894.76; break;
+            case 5: conversao_aux = valor * 133.22; break;
+        }
+
+        switch (unidade_destino) {
+            case 1: resultado = conversao_aux; break;
+            case 2: resultado = conversao_aux / 101325; break;
+            case 3: resultado = conversao_aux / 100000; break;
+            case 4: resultado = conversao_aux / 6894.76; break;
+            case 5: resultado = conversao_aux / 133.22; break;
+        }
+
+        if (unidade_origem == unidade_destino) {
+            printf("\nMESMA UNIDADE, PORTANTO O VALOR PERMANECE %.3f\n", valor);
+        } else {
+            printf("\nO RESULTADO DESSA CONVERSAO EH: %.3f\n", resultado);
+        }
+
+        printf("\nGostaria de fazer outra conversao de pressao?\n(1) SIM\n(2) NAO\n");
+        if (scanf("%d", &repetir) != 1) {
+            printf("Entrada invalida. Tente novamente.\n");
+            limparBuffer();
+            repetir = 0; // Para evitar loop infinito
+        }
+    }
 }
